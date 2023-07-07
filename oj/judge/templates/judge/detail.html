@@ -1,0 +1,27 @@
+{% extends 'judge/base.html' %}
+{% block main_content %}
+
+    <h1 style="margin: auto; text-align: center;">{{problem.name}}</h1>
+    <p style="margin: auto; font-size: medium; text-align: center;" >{{problem.statement}}</p>
+    <textarea rows="10" cols="200" disabled="disabled" style="width: 600px; display: block; margin: auto;">
+        Submit code here..
+    </textarea>
+    <form style="margin: auto;" action="{%url 'judge:submit' problem.id %}" method="post"  enctype="multipart/form-data" >
+        {% csrf_token %}
+        <fieldset>
+            <!-- <p>Problem Difficulty: {{problem.difficulty}}</p> -->
+            <div align="center"  style="margin: auto;">
+                <form>
+                    <div class="form-group" style="margin: 50px;">
+                      <input type="file" name="solfile" class="form-control-file" id="solfile exampleFormControlFile1">
+                      <input type="submit" value="Submit" >
+                    </div>
+                  </form>
+                <!-- <textarea rows="12" cols="100">Type your code here...</textarea><br>
+                <button> Submit </button> -->
+                
+            </div>
+        </fieldset>
+    </form>
+
+{% endblock %}
