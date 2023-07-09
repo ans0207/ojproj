@@ -23,7 +23,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('judge/', include('judge.urls')),
     
-]
-
-
-urlpatterns+=static(settings.STATIC_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
